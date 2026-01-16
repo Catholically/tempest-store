@@ -110,29 +110,29 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             text-decoration: none;
         }
 
-        .logo img {
-            height: 50px;
-            width: 50px;
+        .logo img.logo-icon {
+            height: 45px;
+            width: 45px;
             border-radius: 50%;
             object-fit: cover;
             filter: drop-shadow(0 0 10px rgba(126, 200, 227, 0.5));
+            transition: transform 0.3s ease;
+            background: white;
+        }
+
+        .logo img.logo-text-img {
+            height: 28px;
+            width: auto;
+            filter: drop-shadow(0 0 8px rgba(126, 200, 227, 0.4));
             transition: transform 0.3s ease;
         }
 
         .logo:hover img {
             transform: scale(1.05);
-        }
-
-        .logo-text {
-            font-family: 'Bangers', cursive;
-            font-size: 1.8rem;
-            color: var(--slime-light);
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(126, 200, 227, 0.5);
         }
 
         nav {
@@ -219,13 +219,21 @@
         }
 
         .hero-logo {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             filter: drop-shadow(0 0 30px rgba(126, 200, 227, 0.6));
             animation: pulse 3s infinite ease-in-out;
+            background: white;
+        }
+
+        .hero-text-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(126, 200, 227, 0.5));
         }
 
         @keyframes pulse {
@@ -657,6 +665,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1rem;
+            background: white;
         }
 
         footer p {
@@ -1136,8 +1145,8 @@
     <header>
         <div class="header-content">
             <a href="#" class="logo">
-                <img src="logo.png" alt="Tempest Store" id="header-logo">
-                <span class="logo-text">TEMPEST STORE</span>
+                <img src="Tempest Logo.png" alt="Tempest Store" class="logo-icon" id="header-logo">
+                <img src="tempest-text.png" alt="Tempest" class="logo-text-img">
             </a>
             <nav>
                 <a href="#prodotti">Prodotti</a>
@@ -1155,8 +1164,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <img src="logo.png" alt="Tempest Store" class="hero-logo" id="hero-logo">
-            <h1>TEMPEST STORE</h1>
+            <img src="Tempest Logo.png" alt="Tempest Store" class="hero-logo" id="hero-logo">
+            <img src="tempest-text.png" alt="Tempest" class="hero-text-logo">
             <p>Il tuo punto di riferimento per TCG e collezionabili ad Ardea.<br>
             Carte, tornei, passione. Tutto in un unico posto!</p>
             
@@ -1275,7 +1284,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="logo.png" alt="Tempest Store" class="footer-logo" id="footer-logo">
+            <img src="Tempest Logo.png" alt="Tempest Store" class="footer-logo" id="footer-logo">
             <p>© 2025 Tempest Store - Via Verona 1, 00040 Ardea (RM)</p>
             <p style="margin-top: 0.5rem;">TCG • Collezionabili • Manga • Action Figures • Funko POP</p>
         </div>
