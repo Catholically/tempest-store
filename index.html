@@ -606,6 +606,13 @@
             margin-bottom: 1rem;
         }
 
+        .event-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
         .event-game {
             display: inline-block;
             background: rgba(126, 200, 227, 0.15);
@@ -614,6 +621,22 @@
             border-radius: 15px;
             font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        .event-info-btn {
+            background: var(--whatsapp);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .event-info-btn:hover {
+            background: #20bd5a;
+            transform: scale(1.05);
         }
 
         .no-events {
@@ -1327,19 +1350,28 @@
                 <span class="event-date">Ogni Mercoledi</span>
                 <h3>Torneo Yu-Gi-Oh!</h3>
                 <p>Torneo settimanale con premi per i primi classificati. Iscrizione in negozio.</p>
-                <span class="event-game">Yu-Gi-Oh!</span>
+                <div class="event-footer">
+                    <span class="event-game">Yu-Gi-Oh!</span>
+                    <a href="https://wa.me/393488785584?text=Ciao! Vorrei info sul torneo Yu-Gi-Oh! del mercoledi" target="_blank" class="event-info-btn">Info</a>
+                </div>
             </div>
             <div class="event-card">
                 <span class="event-date">Ogni Venerdi</span>
                 <h3>Torneo Pokemon TCG</h3>
                 <p>Sfida i migliori allenatori della zona! Formato Standard.</p>
-                <span class="event-game">Pokemon</span>
+                <div class="event-footer">
+                    <span class="event-game">Pokemon</span>
+                    <a href="https://wa.me/393488785584?text=Ciao! Vorrei info sul torneo Pokemon del venerdi" target="_blank" class="event-info-btn">Info</a>
+                </div>
             </div>
             <div class="event-card">
                 <span class="event-date">Ogni Sabato</span>
                 <h3>Torneo One Piece</h3>
                 <p>Diventa il Re dei Pirati! Torneo con classifiche e premi esclusivi.</p>
-                <span class="event-game">One Piece</span>
+                <div class="event-footer">
+                    <span class="event-game">One Piece</span>
+                    <a href="https://wa.me/393488785584?text=Ciao! Vorrei info sul torneo One Piece del sabato" target="_blank" class="event-info-btn">Info</a>
+                </div>
             </div>
         </div>
     </section>
