@@ -547,6 +547,83 @@
             font-size: 0.95rem;
         }
 
+        /* Events Section */
+        .events-section {
+            padding: 80px 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .events-section h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: var(--slime-light);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(126, 200, 227, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--slime-light);
+            box-shadow: 0 10px 30px rgba(126, 200, 227, 0.2);
+        }
+
+        .event-date {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--slime-dark), var(--slime-mid));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .event-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .event-game {
+            display: inline-block;
+            background: rgba(126, 200, 227, 0.15);
+            color: var(--slime-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .no-events {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 3rem;
+            background: var(--bg-card);
+            border-radius: 20px;
+        }
+
         /* Contact Section */
         .contact-section {
             background: var(--bg-card);
@@ -1054,6 +1131,28 @@
 
             nav {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 22, 40, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+                border-bottom: 1px solid rgba(126, 200, 227, 0.2);
+            }
+
+            nav.mobile-open {
+                display: flex;
+            }
+
+            nav a {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(126, 200, 227, 0.1);
+            }
+
+            nav a:last-child {
+                border-bottom: none;
             }
 
             .mobile-menu-btn {
@@ -1216,6 +1315,31 @@
                 <div class="info-icon">📦</div>
                 <h3>Imballaggio Protetto</h3>
                 <p>Le tue carte arrivano sempre in condizioni perfette</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section" id="tornei">
+        <h2>🏆 EVENTI & TORNEI</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <span class="event-date">Ogni Mercoledi</span>
+                <h3>Torneo Yu-Gi-Oh!</h3>
+                <p>Torneo settimanale con premi per i primi classificati. Iscrizione in negozio.</p>
+                <span class="event-game">Yu-Gi-Oh!</span>
+            </div>
+            <div class="event-card">
+                <span class="event-date">Ogni Venerdi</span>
+                <h3>Torneo Pokemon TCG</h3>
+                <p>Sfida i migliori allenatori della zona! Formato Standard.</p>
+                <span class="event-game">Pokemon</span>
+            </div>
+            <div class="event-card">
+                <span class="event-date">Ogni Sabato</span>
+                <h3>Torneo One Piece</h3>
+                <p>Diventa il Re dei Pirati! Torneo con classifiche e premi esclusivi.</p>
+                <span class="event-game">One Piece</span>
             </div>
         </div>
     </section>
@@ -1752,7 +1876,14 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+                // Close mobile menu after clicking a link
+                document.querySelector('nav').classList.remove('mobile-open');
             });
+        });
+
+        // ============ MOBILE MENU ============
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('mobile-open');
         });
 
         // ============ INIT ============
