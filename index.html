@@ -268,11 +268,14 @@
             font-size: 0.9rem;
             color: var(--slime-light);
             transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .badge:hover {
-            background: rgba(126, 200, 227, 0.2);
-            transform: translateY(-2px);
+            background: rgba(126, 200, 227, 0.3);
+            transform: translateY(-3px);
+            border-color: var(--slime-light);
         }
 
         .hero-cta {
@@ -1291,12 +1294,12 @@
             Carte, tornei, passione. Tutto in un unico posto!</p>
             
             <div class="hero-badges">
-                <span class="badge">🎴 Pokémon</span>
-                <span class="badge">⚔️ Yu-Gi-Oh!</span>
-                <span class="badge">🏴‍☠️ One Piece</span>
-                <span class="badge">✨ Magic</span>
-                <span class="badge">🐉 Dragon Ball</span>
-                <span class="badge">🤖 Gundam</span>
+                <a href="#prodotti" class="badge" onclick="filterAndScroll('pokemon')">🎴 Pokémon</a>
+                <a href="#prodotti" class="badge" onclick="filterAndScroll('yugioh')">⚔️ Yu-Gi-Oh!</a>
+                <a href="#prodotti" class="badge" onclick="filterAndScroll('onepiece')">🏴‍☠️ One Piece</a>
+                <a href="#prodotti" class="badge" onclick="filterAndScroll('magic')">✨ Magic</a>
+                <a href="#prodotti" class="badge" onclick="filterAndScroll('dragonball')">🐉 Dragon Ball</a>
+                <a href="#prodotti" class="badge" onclick="filterAndScroll('accessori')">🎮 Accessori</a>
             </div>
             
             <div class="hero-cta">
@@ -1656,6 +1659,31 @@
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             renderProducts(category);
+        }
+
+        function filterAndScroll(category) {
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) ||
+                    (category === 'all' && btn.textContent.includes('Tutti'))) {
+                    btn.classList.add('active');
+                }
+            });
+            // Find the matching button and activate it
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                const btnCategory = btn.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                if (btnCategory === category) {
+                    btn.classList.add('active');
+                }
+            });
+            // Render filtered products
+            renderProducts(category);
+            // Scroll to products section
+            setTimeout(() => {
+                document.getElementById('prodotti').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
         }
 
         // ============ PRODUCT MODAL ============
