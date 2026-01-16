@@ -1,0 +1,10 @@
+{
+  "name": "tempest-store",
+  "version": "1.0.0",
+  "description": "Tempest Store - TCG & Collezionabili Ardea",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  }
+}
