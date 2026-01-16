@@ -1349,9 +1349,9 @@
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             let message = "Ciao! Vorrei ordinare:\n\n";
             cart.forEach(item => {
-                message += `• ${item.name} x${item.quantity} - €${(item.price * item.quantity).toFixed(2)}\n`;
+                message += `- ${item.name} x${item.quantity} - ${(item.price * item.quantity).toFixed(2)} EUR\n`;
             });
-            message += `\n💰 Totale: €${total.toFixed(2)}`;
+            message += `\nTotale: ${total.toFixed(2)} EUR`;
 
             whatsappBtn.href = `https://wa.me/393488785584?text=${encodeURIComponent(message)}`;
         }
